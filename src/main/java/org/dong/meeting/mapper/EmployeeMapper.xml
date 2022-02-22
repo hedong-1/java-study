@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.dong.meeting.mapper.EmployeeMapper">
+
+    <select id="loadEmpByUsername" resultType="org.dong.meeting.model.Employee">
+        select * from meeting.employee where username=#{username};
+    </select>
+
+    <select id="getAllEmpsByStatus" resultType="org.dong.meeting.model.Employee">
+        select * from meeting.employee where status=#{status};
+    </select>
+
+    <insert id="doReg" parameterType="org.dong.meeting.model.Employee">
+        insert into meeting.employee (employeename, username, phone, email, status, departmentid, password, role) values (
+            #{employeeName},#{username},#{phone},#{email},#{status},#{departmentId},#{password},#{role});
+    </insert>
+
+    <update id="approveaccount">
+        update meeting.employee set status=#{status} where employeeid=#{employeeId};
+    </update>
+
+    <select id="getAllEmps" resultType="org.dong.meeting.model.Employee">
+        select * from meeting.employee where status=#{emp.status}
+        <if test="emp.employeeName!=null">
+            and employeename like concat('%',#{emp.employeeName},'%')
+        </if>
+        <if test="emp.username!=null">
+            and username like concat('%',#{emp.username},'%')
+        </if>
+        limit #{page},#{pagesize};
+    </select>
+
+    <select id="getTotal" resultType="java.lang.Long">
+        select count(*) from meeting.employee where status=#{status}
+        <if test="employeeName!=null">
+            and employeename like concat('%',#{employeeName},'%')
+        </if>
+        <if test="username!=null">
+            and username like concat('%',#{username},'%')
+        </if>
+    </select>
+
+    <update id="closeEmp" parameterType="java.lang.Integer">
+        update meeting.employee set status=2 where employeeid=#{id};
+    </update>
+
+    <select id="getEmpByDepId" parameterType="java.lang.Integer" resultType="org.dong.meeting.model.Employee">
+        select * from meeting.employee where departmentid=${depId};
+    </select>
+</mapper>

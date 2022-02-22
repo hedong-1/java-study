@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.dong.meeting.mapper.DepartmentMapper">
+    <select id="getDeptById" resultType="org.dong.meeting.model.Department">
+        select * from meeting.department where departmentid=#{id};
+    </select>
+
+    <select id="getAllDeps" resultType="org.dong.meeting.model.Department">
+        select * from meeting.department;
+    </select>
+
+    <insert id="addDepartment" parameterType="java.lang.String">
+        insert into meeting.department (departmentname) values (#{departmentName});
+    </insert>
+
+    <select id="getDeptByName" resultType="org.dong.meeting.model.Department">
+        select * from meeting.department where departmentname=#{departmentName};
+    </select>
+
+    <delete id="deleteDepById" parameterType="java.lang.Integer">
+        delete from meeting.department where departmentid=#{departmentId};
+    </delete>
+
+    <update id="updateDep">
+        update meeting.department set departmentname=#{name} where departmentid=#{id};
+    </update>
+</mapper>
