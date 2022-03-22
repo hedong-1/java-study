@@ -7,7 +7,7 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <context:property-placeholder location="classpath:db.properties"/>
+    <context:property-placeholder location="classpath:db.properties" ignore-unresolvable="true"/>
 
     <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
         <property name="username" value="${db.username}"/>
