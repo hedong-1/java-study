@@ -1,8 +1,9 @@
 package org.dong.meeting.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Meeting {
+public class Meeting implements Serializable {
     private Integer meetingId;
     private String meetingName;
     private Integer roomId;

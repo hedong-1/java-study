@@ -1,6 +1,8 @@
 package org.dong.meeting.model;
 
-public class Department {
+import java.io.Serializable;
+
+public class Department implements Serializable {
     private Integer departmentId;
     private String departmentName;
 

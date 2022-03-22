@@ -1,6 +1,8 @@
 package org.dong.meeting.model;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private Integer employeeId;
     private String employeeName;
     private String username;
