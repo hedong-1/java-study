@@ -49,7 +49,7 @@
     </bean>
 
     <aop:config proxy-target-class="true">
-        <aop:pointcut id="controllerMethodPointcut" expression="execution(* org.dong.meeting.service.impl.*.list*(..))"/>
+        <aop:pointcut id="controllerMethodPointcut" expression="execution(* org.dong.meeting.service.*.get*(..))"/>
         <aop:advisor advice-ref="methodCacheInterceptor" pointcut-ref="controllerMethodPointcut"/>
     </aop:config>
 
