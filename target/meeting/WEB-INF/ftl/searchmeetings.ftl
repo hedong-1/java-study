@@ -23,15 +23,15 @@
                             <tr>
                                 <td>会议名称：</td>
                                 <td>
-                                    <input type="text" id="meetingname" maxlength="20"/>
+                                    <input type="text" name="meetingName" id="meetingname" maxlength="20"/>
                                 </td>
                                 <td>会议室名称：</td>
                                 <td>
-                                    <input type="text" id="roomname" maxlength="20"/>
+                                    <input type="text" name="roomName" id="roomname" maxlength="20"/>
                                 </td>
                                 <td>预定者姓名：</td>
                                 <td>
-                                    <input type="text" id="reservername" maxlength="20"/>
+                                    <input type="text" name="reserveName" id="reservername" maxlength="20"/>
                                 </td>
                             </tr>
                             <tr>
